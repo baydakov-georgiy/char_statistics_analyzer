@@ -3,6 +3,10 @@
 Программа подсчитывает количество символов в файлах с определнными расширениями и выдает статистику в формате `csv`
 
 ## Установка
+```sh
+git clone https://github.com/baydakov-georgiy/char_statistics_analyzer.git
+cd ./char_statistics_analyzer
+```
 
 ## Использование
 ```sh
