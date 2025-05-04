@@ -103,7 +103,7 @@ def main():
 
     output_file = args.output if args.output else config["default_output_file"]
     table, columns = create_characters_table(files_data)
-    save_to_csv(table, columns);
+    save_to_csv(table, columns, output_file);
 
     print(f"Success! Analysis file `./{output_file}`")
 
