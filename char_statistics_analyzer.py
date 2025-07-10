@@ -10,7 +10,9 @@ config = {
         " ": "[space]",
         "\n": "[newline]",
         "\t": "[tab]",
-        "\b": "[backspace]"
+        "\b": "[backspace]",
+        ",": "[comma]",
+        ';': "[semicolon]"
     }
 }
 
