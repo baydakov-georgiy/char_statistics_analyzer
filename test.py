@@ -1,5 +1,5 @@
 from collections import defaultdict
-from char_statistics_analyzer import is_match_extension, count_characters_in_file
+from char_statistics_analyzer import is_match_extension, count_characters_in_file, create_characters_table, save_to_csv
 import random
 import string
 import pytest
@@ -41,3 +41,15 @@ def test_count_characters_in_file(tmp_path):
     generate_random_file(file_path, 50, is_binary=True)
     with pytest.raises(SystemExit):
         count_characters_in_file(file_path)
+
+def test_save_to_csv(tmp_path):
+    # This data is obtained after count_characters_in_file
+    input_data = {
+        "some.txt": {",": 10, ";": 5}
+    }
+    expected_data = 'filepath,",",;\nsome.txt,10,5\nTOTAL,10,5\n'
+    received_filepath = tmp_path / "received.csv"
+    table, columns = create_characters_table(input_data)
+    save_to_csv(table, columns, received_filepath)
+    with open(received_filepath, "r", encoding="utf-8") as received_file:
+        assert expected_data == received_file.read()
